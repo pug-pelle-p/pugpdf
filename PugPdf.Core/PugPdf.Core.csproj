@@ -11,7 +11,7 @@
         <Description>WkHtmlToPdf .net core wrapper</Description>
         <Copyright>Copyright 2020 Pelle Branden</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Version>1.0.0</Version>
+        <Version>1.0.2</Version>
         <Authors>Pelle Branden</Authors>
         <Company>Pelle Branden</Company>
     </PropertyGroup>
@@ -35,7 +35,7 @@
 
         <Content Include="wkhtmltopdf\linux\x64\wkhtmltopdf">
             <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.0\wkhtmltopdf\linux\x64\wkhtmltopdf</PackagePath>
+            <PackagePath>lib\netstandard2.0\wkhtmltopdf\linux\x64</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
 
