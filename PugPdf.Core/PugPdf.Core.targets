@@ -17,6 +17,10 @@
         <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe" DestinationFiles="$(OutDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe"
               SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe')">
         </Copy>
+
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\linux\x64\wkhtmltopdf" DestinationFiles="$(OutDir)\wkhtmltopdf\linux\x64\wkhtmltopdf"
+              SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\linux\x64\wkhtmltopdf')">
+        </Copy>
     </Target>
     
     <Target Name="CopyPublish" BeforeTargets="Publish">
@@ -30,6 +34,10 @@
 
         <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe" DestinationFiles="$(PublishDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe"
               SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe')">
+        </Copy>
+
+        <Copy SourceFiles="$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf" DestinationFiles="$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf"
+              SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf')">
         </Copy>
     </Target>
     
