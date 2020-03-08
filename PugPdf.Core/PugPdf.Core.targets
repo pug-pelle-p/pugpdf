@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <PropertyGroup>
+        <ContentFilesPath>$(MSBuildThisFileDirectory)..\lib\netstandard2.0</ContentFilesPath>
+    </PropertyGroup>
+    
+    <Target Name="CopyBuild" BeforeTargets="Build">
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\mac\x64\wkhtmltopdf" DestinationFiles="$(OutDir)\wkhtmltopdf\mac\x64\wkhtmltopdf"
+              SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\mac\x64\wkhtmltopdf')">
+        </Copy>
+
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe" DestinationFiles="$(OutDir)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe"
+              SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe')">
+        </Copy>
+
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe" DestinationFiles="$(OutDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe"
+              SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe')">
+        </Copy>
+    </Target>
+    
+    <Target Name="CopyPublish" BeforeTargets="Publish">
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\mac\x64\wkhtmltopdf" DestinationFiles="$(PublishDir)\wkhtmltopdf\mac\x64\wkhtmltopdf"
+              SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\mac\x64\wkhtmltopdf')">
+        </Copy>
+
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe" DestinationFiles="$(PublishDir)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe"
+              SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\windows\x64\wkhtmltopdf.exe')">
+        </Copy>
+
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe" DestinationFiles="$(PublishDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe"
+              SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe')">
+        </Copy>
+    </Target>
+    
+</Project>

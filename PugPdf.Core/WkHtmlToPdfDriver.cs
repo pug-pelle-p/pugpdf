@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,12 @@ namespace PugPdf.Core
 
         private static string GetExecutablePath()
         {
-        
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wkhtmltopdf");
-
+            var assembly = Assembly.GetAssembly(typeof(WkHtmlToPdfDriver));
+            
+            var assemblyFolderPath = Path.GetDirectoryName(assembly.Location);
+            
+            var path = Path.Combine(assemblyFolderPath, "wkhtmltopdf");
+            
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 switch (RuntimeInformation.ProcessArchitecture)

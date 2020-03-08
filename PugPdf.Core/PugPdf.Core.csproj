@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <PackageId>PugPDF.Core</PackageId>
         <Title>PugPDF Core</Title>
@@ -11,25 +11,34 @@
         <Description>WkHtmlToPdf .net core wrapper</Description>
         <Copyright>Copyright 2020 Pelle Branden</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Version>1.0.0-preview1</Version>
+        <Version>1.0.0</Version>
         <Authors>Pelle Branden</Authors>
         <Company>Pelle Branden</Company>
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="wkhtmltopdf\windows\x64\wkhtmltopdf.exe">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="wkhtmltopdf\windows\x86\wkhtmltopdf.exe">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-    </ItemGroup>
+        <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.0\wkhtmltopdf\mac\x64</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="wkhtmltopdf\windows\x64\wkhtmltopdf.exe">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.0\wkhtmltopdf\windows\x64\wkhtmltopdf.exe</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="wkhtmltopdf\windows\x86\wkhtmltopdf.exe">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.0\wkhtmltopdf\windows\x86\wkhtmltopdf.exe</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Folder Include="wkhtmltopdf\linux\x64" />
 
-    <ItemGroup>
-      <Folder Include="wkhtmltopdf\linux\x64" />
+        <Content Include="PugPdf.Core.targets">
+            <Pack>true</Pack>
+            <PackagePath>build\PugPdf.Core.targets</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>
