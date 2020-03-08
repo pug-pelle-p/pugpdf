@@ -9,14 +9,16 @@ namespace PugPdf.SampleNetCore
     {
         static async Task Main(string[] args)
         {
-            var pdf = await WkHtmlToPdfDriver.ConvertAsync("<h1>Hello world</h1>");
+            var renderer = new HtmlToPdf();
 
-            var pdfFilePath = Path.GetTempFileName() + ".pdf";
-
-            File.WriteAllBytes(pdfFilePath, pdf);
+            renderer.PrintOptions.Title = "Kalle";
             
-            Console.WriteLine(pdfFilePath);
+            var pdf = await renderer.RenderHtmlAsPdfAsync("<html><body><h1>Pelle</h1></body></html>");
 
+            var filePath = await pdf.SaveInTempFolderAsync();
+
+            Console.WriteLine(filePath);
+            
             Console.ReadLine();
         }
     }

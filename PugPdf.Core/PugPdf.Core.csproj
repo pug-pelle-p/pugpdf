@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -16,7 +16,8 @@
         <Company>Pelle Branden</Company>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+
         <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
             <Pack>true</Pack>
             <PackagePath>lib\netstandard2.0\wkhtmltopdf\mac\x64</PackagePath>
@@ -39,11 +40,40 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
 
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+
+        <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.1\wkhtmltopdf\mac\x64</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="wkhtmltopdf\windows\x64\wkhtmltopdf.exe">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.1\wkhtmltopdf\windows\x64\wkhtmltopdf.exe</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="wkhtmltopdf\windows\x86\wkhtmltopdf.exe">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.1\wkhtmltopdf\windows\x86\wkhtmltopdf.exe</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+
+        <Content Include="wkhtmltopdf\linux\x64\wkhtmltopdf">
+            <Pack>true</Pack>
+            <PackagePath>lib\netstandard2.1\wkhtmltopdf\linux\x64</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="PugPdf.Core.targets">
             <Pack>true</Pack>
             <PackagePath>build\PugPdf.Core.targets</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
-
+    
 </Project>

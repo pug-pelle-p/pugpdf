@@ -2,9 +2,10 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     
     <PropertyGroup>
-        <ContentFilesPath>$(MSBuildThisFileDirectory)..\lib\netstandard2.0</ContentFilesPath>
+        <ContentFilesPath Condition="'$(TargetFramework)' == 'netstandard2.0'">$(MSBuildThisFileDirectory)..\lib\netstandard2.0</ContentFilesPath>
+        <ContentFilesPath Condition="'$(TargetFramework)' == 'netstandard2.1'">$(MSBuildThisFileDirectory)..\lib\netstandard2.1</ContentFilesPath>
     </PropertyGroup>
-    
+
     <Target Name="CopyBuild" BeforeTargets="Build">
         <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\mac\x64\wkhtmltopdf" DestinationFiles="$(OutDir)\wkhtmltopdf\mac\x64\wkhtmltopdf"
               SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\mac\x64\wkhtmltopdf')">
@@ -22,7 +23,7 @@
               SkipUnchangedFiles="true" Condition="!Exists('$(OutDir)\wkhtmltopdf\linux\x64\wkhtmltopdf')">
         </Copy>
     </Target>
-    
+
     <Target Name="CopyPublish" BeforeTargets="Publish">
         <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\mac\x64\wkhtmltopdf" DestinationFiles="$(PublishDir)\wkhtmltopdf\mac\x64\wkhtmltopdf"
               SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\mac\x64\wkhtmltopdf')">
@@ -40,5 +41,6 @@
               SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf')">
         </Copy>
     </Target>
+
     
 </Project>

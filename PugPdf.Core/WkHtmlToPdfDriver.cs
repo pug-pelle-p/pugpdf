@@ -21,7 +21,7 @@ namespace PugPdf.Core
 
             if (!File.Exists(path))
                 throw new FileNotFoundException("Executable not found.", path);
-            
+
             _executablePath = path;
 
             return path;
@@ -30,11 +30,11 @@ namespace PugPdf.Core
         private static string GetExecutablePath()
         {
             var assembly = Assembly.GetAssembly(typeof(WkHtmlToPdfDriver));
-            
+
             var assemblyFolderPath = Path.GetDirectoryName(assembly.Location);
-            
+
             var path = Path.Combine(assemblyFolderPath, "wkhtmltopdf");
-            
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 switch (RuntimeInformation.ProcessArchitecture)
@@ -72,16 +72,16 @@ namespace PugPdf.Core
 
             throw new NotSupportedException("OS not supported.");
         }
-        
+
         private static string SpecialCharsEncode(string text)
         {
             var charArray = text.ToCharArray();
             var stringBuilder = new StringBuilder();
-            
+
             foreach (var ch in charArray)
             {
                 var charInt = Convert.ToInt32(ch);
-                
+
                 if (charInt > sbyte.MaxValue)
                     stringBuilder.AppendFormat("&#{0};", charInt);
                 else
@@ -99,7 +99,7 @@ namespace PugPdf.Core
                 switches += " -";
                 html = SpecialCharsEncode(html);
             }
-            
+
             using (var process = new Process())
             {
                 process.StartInfo = new ProcessStartInfo()
@@ -125,24 +125,22 @@ namespace PugPdf.Core
                 using (var memoryStream = new MemoryStream())
                 using (var baseStream = process.StandardOutput.BaseStream)
                 {
-
                     var buffer = new byte[4096];
                     int count;
-            
+
                     while ((count = await baseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
                         memoryStream.Write(buffer, 0, count);
 
                     var end = await process.StandardError.ReadToEndAsync();
-            
+
                     if (memoryStream.Length == 0L)
                         throw new Exception(end);
-            
-                    process.WaitForExit();
-            
-                    return memoryStream.ToArray();
 
+                    process.WaitForExit();
+
+                    return memoryStream.ToArray();
                 }
-}
+            }
         }
     }
 }
