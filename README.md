@@ -1,4 +1,4 @@
-# pugpdf
+# PugPDF
 A WkHtmlToPdf .net core wrapper.
 
 It includes all binaries to run wkhtmltopdf, no external dependencies.
