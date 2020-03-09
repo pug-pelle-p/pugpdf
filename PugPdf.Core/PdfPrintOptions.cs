@@ -24,7 +24,7 @@ namespace PugPdf.Core
             switches += $"--orientation {Orientation} ";
 
             if (!string.IsNullOrEmpty(Title))
-                switches += $"--title {Title} ";
+                switches += $"--title \"{Title}\" ";
             
             switches += "--disable-smart-shrinking ";
             
