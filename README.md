@@ -10,5 +10,11 @@ To get started you can download the prebuilt [NuGet package](https://www.nuget.o
 ## Usage
 
 ```
-var pdfByteArray = await WkHtmlToPdfDriver.ConvertAsync("<h1>Hello world</h1>");
+var renderer = new HtmlToPdf();
+
+renderer.PrintOptions.Title = "My title";
+
+var pdf = await renderer.RenderHtmlAsPdfAsync("<h1>Hello world</h1>");
+
+pdf.SaveAs("c:\\my.pdf");
 ```

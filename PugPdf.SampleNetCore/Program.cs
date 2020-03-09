@@ -11,10 +11,12 @@ namespace PugPdf.SampleNetCore
         {
             var renderer = new HtmlToPdf();
 
-            renderer.PrintOptions.Title = "Kalle";
+            renderer.PrintOptions.Title = "My title";
             
-            var pdf = await renderer.RenderHtmlAsPdfAsync("<html><body><h1>Pelle</h1></body></html>");
+            var pdf = await renderer.RenderHtmlAsPdfAsync("<h1>Hello world</h1>");
 
+            await pdf.SaveAsAsync("c:\\my.pdf");
+            
             var filePath = await pdf.SaveInTempFolderAsync();
 
             Console.WriteLine(filePath);
