@@ -11,7 +11,7 @@
         <Description>WkHtmlToPdf .net core wrapper</Description>
         <Copyright>Copyright 2020 Pelle Branden</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Authors>Pelle Branden</Authors>
         <Company>Pelle Branden</Company>
     </PropertyGroup>
