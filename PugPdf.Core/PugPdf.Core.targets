@@ -2,8 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     
     <PropertyGroup>
-        <ContentFilesPath Condition="'$(TargetFramework)' == 'netstandard2.0'">$(MSBuildThisFileDirectory)..\lib\netstandard2.0</ContentFilesPath>
-        <ContentFilesPath Condition="'$(TargetFramework)' == 'netstandard2.1'">$(MSBuildThisFileDirectory)..\lib\netstandard2.1</ContentFilesPath>
+        <ContentFilesPath>$(MSBuildThisFileDirectory)..\lib\any</ContentFilesPath>
     </PropertyGroup>
 
     <Target Name="CopyBuild" BeforeTargets="Build">

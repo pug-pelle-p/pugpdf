@@ -27,7 +27,6 @@ namespace PugPdf.Core
                 switches += $"--title \"{Title}\" ";
             
             switches += "--disable-smart-shrinking ";
-            
 
             return switches;
         }

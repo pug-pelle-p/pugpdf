@@ -11,62 +11,37 @@
         <Description>WkHtmlToPdf .net core wrapper</Description>
         <Copyright>Copyright 2020 Pelle Branden</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Version>1.0.4</Version>
+        <Version>1.0.6</Version>
         <Authors>Pelle Branden</Authors>
         <Company>Pelle Branden</Company>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <ItemGroup>
 
         <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
             <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.0\wkhtmltopdf\mac\x64</PackagePath>
+            <PackagePath>lib\any\wkhtmltopdf\mac\x64</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Include="wkhtmltopdf\windows\x64\wkhtmltopdf.exe">
             <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.0\wkhtmltopdf\windows\x64\wkhtmltopdf.exe</PackagePath>
+            <PackagePath>lib\any\wkhtmltopdf\windows\x64\wkhtmltopdf.exe</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Include="wkhtmltopdf\windows\x86\wkhtmltopdf.exe">
             <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.0\wkhtmltopdf\windows\x86\wkhtmltopdf.exe</PackagePath>
+            <PackagePath>lib\any\wkhtmltopdf\windows\x86\wkhtmltopdf.exe</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
 
         <Content Include="wkhtmltopdf\linux\x64\wkhtmltopdf">
             <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.0\wkhtmltopdf\linux\x64</PackagePath>
+            <PackagePath>lib\any\wkhtmltopdf\linux\x64</PackagePath>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
 
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-
-        <Content Include="wkhtmltopdf\mac\x64\wkhtmltopdf">
-            <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.1\wkhtmltopdf\mac\x64</PackagePath>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="wkhtmltopdf\windows\x64\wkhtmltopdf.exe">
-            <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.1\wkhtmltopdf\windows\x64\wkhtmltopdf.exe</PackagePath>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="wkhtmltopdf\windows\x86\wkhtmltopdf.exe">
-            <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.1\wkhtmltopdf\windows\x86\wkhtmltopdf.exe</PackagePath>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-
-        <Content Include="wkhtmltopdf\linux\x64\wkhtmltopdf">
-            <Pack>true</Pack>
-            <PackagePath>lib\netstandard2.1\wkhtmltopdf\linux\x64</PackagePath>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-
-    </ItemGroup>
 
     <ItemGroup>
         <Content Include="PugPdf.Core.targets">

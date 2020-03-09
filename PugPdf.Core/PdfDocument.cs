@@ -33,7 +33,6 @@ namespace PugPdf.Core
         }
 
 #if NETSTANDARD2_1
-
         public Task SaveAsAsync(string path)
         {
             return File.WriteAllBytesAsync(path, BinaryData);
@@ -47,7 +46,6 @@ namespace PugPdf.Core
 
             return filePath;
         }
-
 #endif
     }
 }
