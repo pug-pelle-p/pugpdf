@@ -36,7 +36,7 @@
               SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\windows\x86\wkhtmltopdf.exe')">
         </Copy>
 
-        <Copy SourceFiles="$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf" DestinationFiles="$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf"
+        <Copy SourceFiles="$(ContentFilesPath)\wkhtmltopdf\linux\x64\wkhtmltopdf" DestinationFiles="$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf"
               SkipUnchangedFiles="true" Condition="!Exists('$(PublishDir)\wkhtmltopdf\linux\x64\wkhtmltopdf')">
         </Copy>
     </Target>
