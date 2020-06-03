@@ -17,4 +17,8 @@ renderer.PrintOptions.Title = "My title";
 var pdf = await renderer.RenderHtmlAsPdfAsync("<h1>Hello world</h1>");
 
 pdf.SaveAs("c:\\my.pdf");
+
+// Or
+
+var byteArray = pdf.BinaryData;
 ```
