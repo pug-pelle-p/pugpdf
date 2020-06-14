@@ -13,4 +13,12 @@
       <ProjectReference Include="..\PugPdf.Core\PugPdf.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="files\GitHub_Logo.png" />
+      <Content Include="files\GitHub_Logo.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="files\pdf.html" />
+    </ItemGroup>
+
 </Project>
