@@ -15,6 +15,9 @@ namespace PugPdf.Core
         public int ImageDPI { get; set; } = 600;
         public int ImageQuality { get; set; } = 94;
 
+        public PdfHeader Header { get; set; } = new PdfHeader();
+        public PdfFooter Footer { get; set; } = new PdfFooter();
+
         public string GetSwitches()
         {
             var switches = string.Empty;
@@ -43,6 +46,9 @@ namespace PugPdf.Core
             switches += $"--image-dpi {ImageDPI} ";
             switches += $"--image-quality {ImageQuality} ";
             switches += "--disable-smart-shrinking ";
+
+            switches += Header?.GetSwitches();
+            switches += Footer?.GetSwitches();
 
             return switches;
         }

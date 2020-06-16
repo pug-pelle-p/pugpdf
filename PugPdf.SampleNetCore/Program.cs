@@ -66,19 +66,19 @@ namespace PugPdf.SampleNetCore
             
             renderer.PrintOptions.Title = "My title";
 
-            renderer.Header.LeftText = "Header Left";
-            renderer.Header.CenterText = "Header Center";
-            renderer.Header.RightText = "Header Right";
-            renderer.Header.FontSize = 12;
-            renderer.Header.Spacing = 5;
-            renderer.Footer.DisplayLine = true;
+            renderer.PrintOptions.Header.LeftText = "Header Left";
+            renderer.PrintOptions.Header.CenterText = "Header Center";
+            renderer.PrintOptions.Header.RightText = "Header Right";
+            renderer.PrintOptions.Header.FontSize = 12;
+            renderer.PrintOptions.Header.Spacing = 5;
+            renderer.PrintOptions.Footer.DisplayLine = true;
 
-            renderer.Footer.LeftText = "Footer Left";
-            renderer.Footer.CenterText = "Footer Center";
-            renderer.Footer.RightText = "Footer Right";
-            renderer.Footer.FontSize = 10;
-            renderer.Footer.Spacing = 1;
-            renderer.Footer.DisplayLine = true;
+            renderer.PrintOptions.Footer.LeftText = "Footer Left";
+            renderer.PrintOptions.Footer.CenterText = "Footer Center";
+            renderer.PrintOptions.Footer.RightText = "Footer Right";
+            renderer.PrintOptions.Footer.FontSize = 10;
+            renderer.PrintOptions.Footer.Spacing = 1;
+            renderer.PrintOptions.Footer.DisplayLine = true;
             
             var pdf = await renderer.RenderHtmlAsPdfAsync("<h1>Hello world</h1>");
 
