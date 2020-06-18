@@ -26,7 +26,7 @@
                 switches += $"--footer-right \"{RightText}\" ";
 
             if (!string.IsNullOrEmpty(HTML))
-                switches += $"--footer-html \"{HTML}\" ";
+                switches += $"--footer-html \"{TextUtil.SpecialCharsEncode(HTML)}\" ";
 
             if (DisplayLine)
                 switches += "--footer-line ";

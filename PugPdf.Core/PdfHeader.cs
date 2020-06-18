@@ -26,7 +26,7 @@
                 switches += $"--header-right \"{RightText}\" ";
 
             if (!string.IsNullOrEmpty(HTML))
-                switches += $"--header-html \"{HTML}\" ";
+                switches += $"--header-html \"{TextUtil.SpecialCharsEncode(HTML)}\" ";
 
             if (DisplayLine)
                 switches += "--header-line ";
