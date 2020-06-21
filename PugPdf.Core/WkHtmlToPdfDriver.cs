@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PugPdf.Core
@@ -72,13 +73,31 @@ namespace PugPdf.Core
             throw new NotSupportedException("OS not supported.");
         }
 
+        private static string SpecialCharsEncode(string text)
+        {
+            var charArray = text.ToCharArray();
+            var stringBuilder = new StringBuilder();
+
+            foreach (var ch in charArray)
+            {
+                var charInt = Convert.ToInt32(ch);
+
+                if (charInt > sbyte.MaxValue)
+                    stringBuilder.AppendFormat("&#{0};", charInt);
+                else
+                    stringBuilder.Append(ch);
+            }
+
+            return stringBuilder.ToString();
+        }
+
         public static async Task<byte[]> ConvertAsync(string html, string switches = "")
         {
             switches = "-q " + switches + " -";
             if (!string.IsNullOrEmpty(html))
             {
                 switches += " -";
-                html = TextUtil.SpecialCharsEncode(html);
+                html = SpecialCharsEncode(html);
             }
 
             using (var process = new Process())

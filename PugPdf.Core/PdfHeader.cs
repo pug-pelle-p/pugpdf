@@ -5,7 +5,7 @@
         public string LeftText { get; set; } = string.Empty;
         public string CenterText { get; set; } = string.Empty;
         public string RightText { get; set; } = string.Empty;
-        public string HTML { get; set; } = string.Empty;
+        public string HTMLUrl { get; set; } = string.Empty;
         public bool DisplayLine { get; set; } = false;
         public string FontName { get; set; } = "Arial";
         public double FontSize { get; set; } = 12d;
@@ -25,8 +25,8 @@
             if (!string.IsNullOrEmpty(RightText))
                 switches += $"--header-right \"{RightText}\" ";
 
-            if (!string.IsNullOrEmpty(HTML))
-                switches += $"--header-html \"{TextUtil.SpecialCharsEncode(HTML)}\" ";
+            if (!string.IsNullOrEmpty(HTMLUrl))
+                switches += $"--header-html \"{HTMLUrl}\" ";
 
             if (DisplayLine)
                 switches += "--header-line ";
