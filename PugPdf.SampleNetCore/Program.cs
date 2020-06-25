@@ -59,5 +59,36 @@ namespace PugPdf.SampleNetCore
             
             Console.ReadLine();
         }
+
+        static async Task PrintWithHeaderAndFooter()
+        {
+            var renderer = new HtmlToPdf();
+            
+            renderer.PrintOptions.Title = "My title";
+
+            renderer.PrintOptions.Header.LeftText = "Header Left";
+            renderer.PrintOptions.Header.CenterText = "Header Center";
+            renderer.PrintOptions.Header.RightText = "Header Right";
+            renderer.PrintOptions.Header.FontSize = 12;
+            renderer.PrintOptions.Header.Spacing = 5;
+            renderer.PrintOptions.Footer.DisplayLine = true;
+
+            renderer.PrintOptions.Footer.LeftText = "Footer Left";
+            renderer.PrintOptions.Footer.CenterText = "Footer Center";
+            renderer.PrintOptions.Footer.RightText = "Footer Right";
+            renderer.PrintOptions.Footer.FontSize = 10;
+            renderer.PrintOptions.Footer.Spacing = 1;
+            renderer.PrintOptions.Footer.DisplayLine = true;
+            
+            var pdf = await renderer.RenderHtmlAsPdfAsync("<h1>Hello world</h1>");
+
+            await pdf.SaveAsAsync("c:\\my.pdf");
+
+            var filePath = await pdf.SaveInTempFolderAsync();
+
+            Console.WriteLine(filePath);
+
+            Console.ReadLine();
+        }
     }
 }

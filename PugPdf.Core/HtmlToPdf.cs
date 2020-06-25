@@ -8,7 +8,7 @@ namespace PugPdf.Core
 
         public async Task<PdfDocument> RenderHtmlAsPdfAsync(string html)
         {
-            var data = await WkHtmlToPdfDriver.ConvertAsync(html, PrintOptions.GetSwitches());
+            var data = await WkHtmlToPdfDriver.ConvertAsync(html, PrintOptions?.GetSwitches());
 
             return new PdfDocument(data);
         }
