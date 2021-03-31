@@ -29,10 +29,7 @@ namespace PugPdf.Core
 
         private static string GetExecutablePath()
         {
-            var assembly = Assembly.GetAssembly(typeof(WkHtmlToPdfDriver));
-
-            var assemblyFolderPath = Path.GetDirectoryName(assembly.Location);
-
+            var assemblyFolderPath = AppContext.BaseDirectory; 
             var path = Path.Combine(assemblyFolderPath, "wkhtmltopdf");
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
