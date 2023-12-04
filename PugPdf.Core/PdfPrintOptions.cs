@@ -14,6 +14,7 @@ namespace PugPdf.Core
         public bool Grayscale { get; set; } = false;
         public int ImageDPI { get; set; } = 600;
         public int ImageQuality { get; set; } = 94;
+        public int DPI { get; set; } = 96;
 
         public PdfHeader Header { get; set; } = new PdfHeader();
         public PdfFooter Footer { get; set; } = new PdfFooter();
@@ -45,6 +46,7 @@ namespace PugPdf.Core
 
             switches += $"--image-dpi {ImageDPI} ";
             switches += $"--image-quality {ImageQuality} ";
+            switches += $"--dpi {DPI} ";
             switches += "--disable-smart-shrinking ";
 
             switches += Header?.GetSwitches();
