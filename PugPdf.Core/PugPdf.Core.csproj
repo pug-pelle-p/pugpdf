@@ -40,6 +40,12 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
 
+        <None Remove="wkhtmltopdf\mac\arm64\wkhtmltopdf" />
+
+        <Content Include="wkhtmltopdf\mac\arm64\wkhtmltopdf">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+
     </ItemGroup>
 
 

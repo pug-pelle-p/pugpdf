@@ -62,6 +62,8 @@ namespace PugPdf.Core
                 {
                     case Architecture.X64:
                         return Path.Combine(path, "mac", "x64", "wkhtmltopdf");
+                    case Architecture.Arm64:
+                        return Path.Combine(path, "mac", "arm64", "wkhtmltopdf");
                     default:
                         throw new NotSupportedException("Process architecture not supported.");
                 }
