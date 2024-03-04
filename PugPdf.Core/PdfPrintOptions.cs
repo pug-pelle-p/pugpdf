@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace PugPdf.Core
 {
     public class PdfPrintOptions
@@ -21,38 +23,38 @@ namespace PugPdf.Core
 
         public string GetSwitches()
         {
-            var switches = string.Empty;
+            var switchesBuilder = new StringBuilder();
 
-            switches += $"--margin-bottom {MarginBottom} ";
-            switches += $"--margin-top {MarginTop} ";
-            switches += $"--margin-left {MarginLeft} ";
-            switches += $"--margin-right {MarginRight} ";
+            switchesBuilder.Append($"--margin-bottom {MarginBottom} ");
+            switchesBuilder.Append($"--margin-top {MarginTop} ");
+            switchesBuilder.Append($"--margin-left {MarginLeft} ");
+            switchesBuilder.Append($"--margin-right {MarginRight} ");
 
-            switches += $"--page-size {PageSize} ";
+            switchesBuilder.Append($"--page-size {PageSize} ");
 
-            switches += $"--orientation {Orientation} ";
+            switchesBuilder.Append($"--orientation {Orientation} ");
 
             if (!string.IsNullOrEmpty(Title))
-                switches += $"--title \"{Title}\" ";
+                switchesBuilder.Append($"--title \"{Title}\" ");
 
             if (LowQuality)
-                switches += "--lowquality ";
+                switchesBuilder.Append("--lowquality ");
 
             if (UsePrintMediaType)
-                switches += "--print-media-type ";
+                switchesBuilder.Append("--print-media-type ");
 
             if (Grayscale)
-                switches += "--grayscale ";
+                switchesBuilder.Append("--grayscale ");
 
-            switches += $"--image-dpi {ImageDPI} ";
-            switches += $"--image-quality {ImageQuality} ";
-            switches += $"--dpi {DPI} ";
-            switches += "--disable-smart-shrinking ";
+            switchesBuilder.Append($"--image-dpi {ImageDPI} ");
+            switchesBuilder.Append($"--image-quality {ImageQuality} ");
+            switchesBuilder.Append($"--dpi {DPI} ");
+            switchesBuilder.Append("--disable-smart-shrinking ");
 
-            switches += Header?.GetSwitches();
-            switches += Footer?.GetSwitches();
+            switchesBuilder.Append(Header?.GetSwitches());
+            switchesBuilder.Append(Footer?.GetSwitches());
 
-            return switches;
+            return switchesBuilder.ToString();
         }
     }
 }
