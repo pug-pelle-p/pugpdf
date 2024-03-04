@@ -1,4 +1,6 @@
-﻿namespace PugPdf.Core
+﻿using System.Text;
+
+namespace PugPdf.Core
 {
     public class PdfHeader
     {
@@ -14,31 +16,31 @@
 
         public string GetSwitches()
         {
-            var switches = string.Empty;
+            var switchesBuilder = new StringBuilder();
 
             if (!string.IsNullOrEmpty(LeftText))
-                switches += $"--header-left \"{LeftText}\" ";
+                switchesBuilder.Append($"--header-left \"{LeftText}\" ");
 
             if (!string.IsNullOrEmpty(CenterText))
-                switches += $"--header-center \"{CenterText}\" ";
+                switchesBuilder.Append($"--header-center \"{CenterText}\" ");
 
             if (!string.IsNullOrEmpty(RightText))
-                switches += $"--header-right \"{RightText}\" ";
+                switchesBuilder.Append($"--header-right \"{RightText}\" ");
 
             if (!string.IsNullOrEmpty(HTMLUrl))
-                switches += $"--header-html \"{HTMLUrl}\" ";
+                switchesBuilder.Append($"--header-html \"{HTMLUrl}\" ");
 
             if (DisplayLine)
-                switches += "--header-line ";
+                switchesBuilder.Append("--header-line ");
 
-            switches += $"--header-font-size {FontSize} ";
-            switches += $"--header-font-name {FontName} ";
-            switches += $"--header-spacing {Spacing} ";
+            switchesBuilder.Append($"--header-font-size {FontSize} ");
+            switchesBuilder.Append($"--header-font-name {FontName} ");
+            switchesBuilder.Append($"--header-spacing {Spacing} ");
 
             if (!string.IsNullOrEmpty(Replace))
-                switches += $"--replace {Replace} ";
+                switchesBuilder.Append($"--replace {Replace} ");
 
-            return switches;
+            return switchesBuilder.ToString();
         }
     }
 }

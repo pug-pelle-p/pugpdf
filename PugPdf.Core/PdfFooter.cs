@@ -1,4 +1,6 @@
-﻿namespace PugPdf.Core
+﻿using System.Text;
+
+namespace PugPdf.Core
 {
     public class PdfFooter
     {
@@ -14,31 +16,31 @@
 
         public string GetSwitches()
         {
-            var switches = string.Empty;
+            var switchesBuilder = new StringBuilder();
 
             if (!string.IsNullOrEmpty(LeftText))
-                switches += $"--footer-left \"{LeftText}\" ";
+                switchesBuilder.Append($"--footer-left \"{LeftText}\" ");
 
             if (!string.IsNullOrEmpty(CenterText))
-                switches += $"--footer-center \"{CenterText}\" ";
+                switchesBuilder.Append($"--footer-center \"{CenterText}\" ");
 
             if (!string.IsNullOrEmpty(RightText))
-                switches += $"--footer-right \"{RightText}\" ";
+                switchesBuilder.Append($"--footer-right \"{RightText}\" ");
 
             if (!string.IsNullOrEmpty(HTMLUrl))
-                switches += $"--footer-html \"{HTMLUrl}\" ";
+                switchesBuilder.Append($"--footer-html \"{HTMLUrl}\" ");
 
             if (DisplayLine)
-                switches += "--footer-line ";
+                switchesBuilder.Append("--footer-line ");
 
-            switches += $"--footer-font-size {FontSize} ";
-            switches += $"--footer-font-name {FontName} ";
-            switches += $"--footer-spacing {Spacing} ";
+            switchesBuilder.Append($"--footer-font-size {FontSize} ");
+            switchesBuilder.Append($"--footer-font-name {FontName} ");
+            switchesBuilder.Append($"--footer-spacing {Spacing} ");
 
             if (!string.IsNullOrEmpty(Replace))
-                switches += $"--replace {Replace} ";
+                switchesBuilder.Append($"--replace {Replace} ");
 
-            return switches;
+            return switchesBuilder.ToString();
         }
     }
 }
